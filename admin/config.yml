@@ -1,6 +1,6 @@
 backend:
   name: github
-  repo: ChaseCochranPhotography/Photo-Website # <-- Change this to yours!
+  repo: ChaseCochranPhotography/Photo-Website
   branch: main
 
 media_folder: "images"

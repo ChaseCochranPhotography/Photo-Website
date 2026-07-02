@@ -10,15 +10,18 @@
     <div id="nc-root"></div>
 
     <script>
-      // This waits for the page to load, then injects the configuration automatically
       window.addEventListener('DOMContentLoaded', () => {
         window.CMS_MANUAL_INIT = true;
         
         const config = {
           backend: {
             name: 'github',
-            repo: 'ChaseCochranPhotography/Photo-Website', // <-- Change this!
-            branch: 'main'
+            repo: 'ChaseCochranPhotography/Photo-Website', 
+            branch: 'main',
+            auth_type: 'implicit',
+            // --- PASTE YOUR CLIENT ID FROM GITHUB BETWEEN THE QUOTES BELOW ---
+            client_id: 'Ov23liMLq6qlSV7XNi29',
+            preview_context: false
           },
           media_folder: 'images',
           public_folder: 'images',
@@ -42,9 +45,8 @@
           ]
         };
 
-        // Initialize Decap CMS with our built-in configuration
         initCMS({ config });
       });
     </script>
-  </head>
+  </body>
 </html>

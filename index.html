@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Photography Portfolio</title>
+    <link rel="identity" href="https://identity.netlify.com/v1/netlify-identity-widget.js">
     <style>
         /* Modern Reset & Variables */
         * {
@@ -16,10 +17,10 @@
         :root {
             --bg-color: #05070a;
             --card-bg: #0e131f;
-            --accent-blue: #0066ff;
-            --accent-glow: rgba(0, 102, 255, 0.15);
+            --accent-blue: #3385ff; /* Made lighter and brighter for high contrast */
+            --accent-glow: rgba(51, 133, 255, 0.25);
             --text-main: #ffffff;
-            --text-muted: #8a99ad;
+            --text-muted: #a3b3c7; /* Made lighter so it's easily readable on black */
         }
 
         body {
@@ -37,7 +38,7 @@
             padding: 1.5rem 2rem;
             max-width: 1200px;
             margin: 0 auto;
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
         .logo {
@@ -120,8 +121,8 @@
             border-radius: 12px;
             background-color: var(--card-bg);
             aspect-ratio: 4 / 5;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255, 255, 255, 0.03);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.6);
+            border: 1px solid rgba(255, 255, 255, 0.05);
         }
 
         .photo-card img {
@@ -156,14 +157,15 @@
             font-size: 1.2rem;
             margin-bottom: 0.4rem;
             font-weight: 600;
+            color: #ffffff;
         }
 
         .photo-info p {
             font-size: 0.9rem;
-            color: var(--accent-blue);
+            color: var(--accent-blue); /* High-contrast bright blue text */
             text-transform: uppercase;
             letter-spacing: 1px;
-            font-weight: 600;
+            font-weight: 700;
         }
 
         /* About Page Styling */
@@ -177,7 +179,7 @@
         .about-img {
             width: 100%;
             border-radius: 12px;
-            border: 1px solid rgba(0, 102, 255, 0.2);
+            border: 1px solid rgba(51, 133, 255, 0.3);
             box-shadow: 0 0 40px var(--accent-glow);
         }
 
@@ -219,7 +221,7 @@
             width: 100%;
             padding: 1rem;
             background: rgba(5, 7, 10, 0.5);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.15);
             border-radius: 8px;
             color: #fff;
             font-size: 1rem;
@@ -233,11 +235,11 @@
 
         .submit-btn {
             background: var(--accent-blue);
-            color: white;
+            color: #05070a; /* Dark text on bright background for readability */
             border: none;
             padding: 1rem 2rem;
             font-size: 1rem;
-            font-weight: 600;
+            font-weight: 700;
             border-radius: 8px;
             cursor: pointer;
             width: 100%;
@@ -339,22 +341,18 @@
         <p>&copy; 2026 Crafted Studio. All Rights Reserved.</p>
     </footer>
 
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
         function switchView(viewName) {
-            // Hide all sections
             document.querySelectorAll('.view-section').forEach(section => {
                 section.classList.remove('active');
             });
-            // Remove active style from links
             document.querySelectorAll('.nav-links a').forEach(link => {
                 link.classList.remove('active');
             });
             
-            // Show selected section and light up nav link
             document.getElementById('view-' + viewName).classList.add('active');
             document.getElementById('nav-' + viewName).classList.add('active');
-            
-            // Scroll to top of page seamlessly
             window.scrollTo({top: 0, behavior: 'smooth'});
         }
     </script>

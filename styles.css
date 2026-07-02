@@ -1,0 +1,523 @@
+/* ==========================================================================
+   Design tokens
+   Palette:  paper #F6F4EF · ink #1B2430 · cobalt #2F5FDB · teal #3C7A6F
+             line #DAD5C8 · line-strong #C9C2B4
+   Type:     JetBrains Mono (display / labels) · Source Serif 4 (body)
+   ========================================================================== */
+
+:root {
+  --paper: #f6f4ef;
+  --paper-raised: #fbfaf6;
+  --ink: #1b2430;
+  --ink-soft: #4a5568;
+  --cobalt: #2f5fdb;
+  --cobalt-dark: #1f3f9e;
+  --teal: #3c7a6f;
+  --line: #dad5c8;
+  --line-strong: #c9c2b4;
+  --amber: #b5732a;
+
+  --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+  --font-serif: 'Source Serif 4', Georgia, serif;
+
+  --max-width: 1120px;
+  --gutter: clamp(1.5rem, 4vw, 3rem);
+
+  --radius: 3px;
+}
+
+/* ==========================================================================
+   Reset
+   ========================================================================== */
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html {
+  scroll-behavior: smooth;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+body {
+  margin: 0;
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--font-serif);
+  font-size: 17px;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3 {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  line-height: 1.1;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+p { margin: 0; }
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+ul { list-style: none; margin: 0; padding: 0; }
+
+img { max-width: 100%; display: block; }
+
+:focus-visible {
+  outline: 2px solid var(--cobalt);
+  outline-offset: 3px;
+}
+
+/* Subtle graph-paper backdrop — the "spec sheet" texture */
+.grid-bg {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background-image:
+    linear-gradient(var(--line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--line) 1px, transparent 1px);
+  background-size: 40px 40px;
+  opacity: 0.35;
+}
+
+/* ==========================================================================
+   Layout helpers
+   ========================================================================== */
+
+.site-header,
+.hero,
+.work,
+.about,
+.contact,
+.site-footer {
+  max-width: var(--max-width);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section-head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 0.75rem;
+  border-bottom: 1px solid var(--line-strong);
+  padding-bottom: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.section-head h2 {
+  font-size: 1.5rem;
+}
+
+.section-head p {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+}
+
+/* ==========================================================================
+   Header
+   ========================================================================== */
+
+.site-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-block: 1.5rem;
+}
+
+.wordmark {
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 1rem;
+  letter-spacing: 0.02em;
+}
+
+.wordmark span {
+  color: var(--cobalt);
+}
+
+.main-nav {
+  display: flex;
+  gap: 1.75rem;
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+}
+
+.main-nav a {
+  position: relative;
+  padding-bottom: 2px;
+}
+
+.main-nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -2px;
+  width: 0;
+  height: 1px;
+  background: var(--cobalt);
+  transition: width 0.2s ease;
+}
+
+.main-nav a:hover::after,
+.main-nav a:focus-visible::after {
+  width: 100%;
+}
+
+/* ==========================================================================
+   Hero
+   ========================================================================== */
+
+.hero {
+  padding-top: clamp(2rem, 6vw, 4.5rem);
+  padding-bottom: clamp(3rem, 8vw, 6rem);
+}
+
+.status-bar {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+  margin-bottom: 2rem;
+}
+
+.status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--teal);
+  box-shadow: 0 0 0 3px rgba(60, 122, 111, 0.15);
+}
+
+.status-sep { color: var(--line-strong); }
+
+.hero-title {
+  font-size: clamp(2.4rem, 6vw, 4.2rem);
+  max-width: 14ch;
+  margin-bottom: 1.75rem;
+}
+
+.hero-sub {
+  font-family: var(--font-serif);
+  font-size: 1.15rem;
+  color: var(--ink-soft);
+  max-width: 46ch;
+  margin-bottom: 2.5rem;
+}
+
+.hero-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin-bottom: 3.5rem;
+}
+
+.btn {
+  font-family: var(--font-mono);
+  font-size: 0.85rem;
+  font-weight: 500;
+  padding: 0.85rem 1.5rem;
+  border-radius: var(--radius);
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: var(--ink);
+  color: var(--paper);
+}
+
+.btn-primary:hover,
+.btn-primary:focus-visible {
+  background: var(--cobalt-dark);
+  transform: translateY(-1px);
+}
+
+.btn-ghost {
+  border-color: var(--line-strong);
+  color: var(--ink);
+  background: transparent;
+}
+
+.btn-ghost:hover,
+.btn-ghost:focus-visible {
+  border-color: var(--ink);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1.5rem;
+  max-width: 32rem;
+  margin: 0;
+  padding-top: 2rem;
+  border-top: 1px solid var(--line);
+}
+
+.stat dt {
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--ink-soft);
+  margin-bottom: 0.35rem;
+}
+
+.stat dd {
+  margin: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 0.95rem;
+}
+
+/* ==========================================================================
+   Work / Project grid
+   ========================================================================== */
+
+.work {
+  padding-block: clamp(2rem, 6vw, 4rem);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.project-card {
+  background: var(--paper-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
+  padding: 1.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.85rem;
+  transition: border-color 0.2s ease, transform 0.2s ease;
+}
+
+.project-card:hover {
+  border-color: var(--ink);
+  transform: translateY(-2px);
+}
+
+.project-meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+}
+
+.tag {
+  padding: 0.2rem 0.55rem;
+  border-radius: 999px;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  font-weight: 500;
+}
+
+.tag-shipped {
+  background: rgba(60, 122, 111, 0.12);
+  color: var(--teal);
+}
+
+.tag-experimental {
+  background: rgba(47, 95, 219, 0.1);
+  color: var(--cobalt-dark);
+}
+
+.tag-archived {
+  background: rgba(181, 115, 42, 0.12);
+  color: var(--amber);
+}
+
+.version {
+  color: var(--ink-soft);
+}
+
+.project-card h3 {
+  font-size: 1.15rem;
+}
+
+.project-card p {
+  color: var(--ink-soft);
+  font-size: 0.95rem;
+  flex-grow: 1;
+}
+
+.stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  font-family: var(--font-mono);
+  font-size: 0.7rem;
+  color: var(--ink-soft);
+}
+
+.stack li {
+  border: 1px solid var(--line);
+  padding: 0.2rem 0.5rem;
+  border-radius: var(--radius);
+}
+
+.project-links {
+  display: flex;
+  gap: 1rem;
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
+  padding-top: 0.35rem;
+  border-top: 1px solid var(--line);
+}
+
+.project-links a:hover,
+.project-links a:focus-visible {
+  color: var(--cobalt);
+}
+
+/* ==========================================================================
+   About
+   ========================================================================== */
+
+.about {
+  padding-block: clamp(2rem, 6vw, 4rem);
+  max-width: var(--max-width);
+}
+
+.about p {
+  max-width: 62ch;
+  color: var(--ink-soft);
+  margin-bottom: 1.25rem;
+  font-size: 1.05rem;
+}
+
+.about p:last-child { margin-bottom: 0; }
+
+/* ==========================================================================
+   Contact
+   ========================================================================== */
+
+.contact {
+  padding-block: clamp(2rem, 6vw, 4rem) clamp(3rem, 8vw, 5rem);
+}
+
+.contact-form {
+  max-width: 34rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.4rem;
+}
+
+.form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.form-row label {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ink-soft);
+}
+
+.form-row input,
+.form-row select,
+.form-row textarea {
+  font-family: var(--font-serif);
+  font-size: 1rem;
+  padding: 0.75rem 0.9rem;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius);
+  background: var(--paper-raised);
+  color: var(--ink);
+  resize: vertical;
+}
+
+.form-row input:focus,
+.form-row select:focus,
+.form-row textarea:focus {
+  outline: none;
+  border-color: var(--cobalt);
+  box-shadow: 0 0 0 3px rgba(47, 95, 219, 0.12);
+}
+
+.contact-form .btn {
+  align-self: flex-start;
+  border: none;
+}
+
+/* ==========================================================================
+   Footer
+   ========================================================================== */
+
+.site-footer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+  padding-block: 2rem;
+  border-top: 1px solid var(--line-strong);
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--ink-soft);
+}
+
+.footer-links {
+  display: flex;
+  gap: 1.5rem;
+}
+
+.footer-links a:hover,
+.footer-links a:focus-visible {
+  color: var(--cobalt);
+}
+
+/* ==========================================================================
+   Responsive
+   ========================================================================== */
+
+@media (max-width: 640px) {
+  .site-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .main-nav {
+    gap: 1.25rem;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .section-head {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .site-footer {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

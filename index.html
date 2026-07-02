@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Alex Reyes — Frontend Engineer</title>
+  <meta name="description" content="Portfolio of Alex Reyes, frontend engineer. Projects, build log, and contact.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;700&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="grid-bg" aria-hidden="true"></div>
+
+  <header class="site-header">
+    <a href="#top" class="wordmark">AR<span>/</span>dev</a>
+    <nav class="main-nav" aria-label="Primary">
+      <a href="#work">Work</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero" id="hero">
+      <div class="status-bar">
+        <span class="status-dot" aria-hidden="true"></span>
+        <span>status: available for work</span>
+        <span class="status-sep">·</span>
+        <span>based in Portland, OR</span>
+        <span class="status-sep">·</span>
+        <span>UTC-8</span>
+      </div>
+
+      <h1 class="hero-title">
+        I build interfaces<br>
+        that hold up<br>
+        under real use.
+      </h1>
+
+      <p class="hero-sub">
+        Frontend engineer focused on performance, accessibility, and the
+        unglamorous details that make software feel trustworthy.
+        Six years shipping production UI for startups and design teams.
+      </p>
+
+      <div class="hero-actions">
+        <a href="#work" class="btn btn-primary">View the build log</a>
+        <a href="#contact" class="btn btn-ghost">Start a project</a>
+      </div>
+
+      <dl class="hero-stats">
+        <div class="stat">
+          <dt>Shipped</dt>
+          <dd>27 products</dd>
+        </div>
+        <div class="stat">
+          <dt>Stack</dt>
+          <dd>React · TS · Node</dd>
+        </div>
+        <div class="stat">
+          <dt>Uptime kept</dt>
+          <dd>99.98%</dd>
+        </div>
+      </dl>
+    </section>
+
+    <!-- WORK / PROJECT GRID -->
+    <section class="work" id="work">
+      <div class="section-head">
+        <h2>Build log</h2>
+        <p>A running record of shipped and in-progress work, not a highlight reel.</p>
+      </div>
+
+      <div class="project-grid">
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="tag tag-shipped">shipped</span>
+            <span class="version">v2.4.0</span>
+          </div>
+          <h3>Ledger</h3>
+          <p>Real-time expense tracker for small teams, built to stay usable on a bad connection.</p>
+          <ul class="stack">
+            <li>React</li>
+            <li>WebSockets</li>
+            <li>SQLite</li>
+          </ul>
+          <div class="project-links">
+            <a href="#">Case study →</a>
+            <a href="#">Source</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="tag tag-shipped">shipped</span>
+            <span class="version">v1.9.2</span>
+          </div>
+          <h3>Fieldnotes</h3>
+          <p>Offline-first note editor for researchers working without reliable internet access.</p>
+          <ul class="stack">
+            <li>Svelte</li>
+            <li>IndexedDB</li>
+            <li>CRDT sync</li>
+          </ul>
+          <div class="project-links">
+            <a href="#">Case study →</a>
+            <a href="#">Source</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="tag tag-experimental">experimental</span>
+            <span class="version">v0.3.0</span>
+          </div>
+          <h3>Contour</h3>
+          <p>A design-token pipeline that generates accessible color scales from a single brand hex.</p>
+          <ul class="stack">
+            <li>TypeScript</li>
+            <li>Culori</li>
+            <li>CLI</li>
+          </ul>
+          <div class="project-links">
+            <a href="#">Case study →</a>
+            <a href="#">Source</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="tag tag-archived">archived</span>
+            <span class="version">v1.0.4</span>
+          </div>
+          <h3>Signal Desk</h3>
+          <p>Support-ticket dashboard with SLA countdowns. Sunset after the client's acquisition.</p>
+          <ul class="stack">
+            <li>Vue</li>
+            <li>GraphQL</li>
+            <li>Postgres</li>
+          </ul>
+          <div class="project-links">
+            <a href="#">Case study →</a>
+            <a href="#">Source</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="tag tag-shipped">shipped</span>
+            <span class="version">v3.1.0</span>
+          </div>
+          <h3>Alto</h3>
+          <p>Component library and docs site used across four internal product teams.</p>
+          <ul class="stack">
+            <li>React</li>
+            <li>Storybook</li>
+            <li>Vite</li>
+          </ul>
+          <div class="project-links">
+            <a href="#">Case study →</a>
+            <a href="#">Source</a>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-meta">
+            <span class="tag tag-experimental">experimental</span>
+            <span class="version">v0.1.0</span>
+          </div>
+          <h3>Runbook</h3>
+          <p>Turns incident postmortems into searchable, linkable playbooks for on-call engineers.</p>
+          <ul class="stack">
+            <li>Next.js</li>
+            <li>MDX</li>
+            <li>Algolia</li>
+          </ul>
+          <div class="project-links">
+            <a href="#">Case study →</a>
+            <a href="#">Source</a>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <!-- ABOUT -->
+    <section class="about" id="about">
+      <div class="section-head">
+        <h2>About</h2>
+      </div>
+      <p>
+        I'm Alex — a frontend engineer who cares more about how software behaves
+        on a slow train connection than how it looks in a pitch deck. My work
+        leans toward performance budgets, accessible-by-default components, and
+        writing CSS that someone else can safely touch six months from now.
+      </p>
+      <p>
+        Previously at two Series A startups and a design consultancy. Currently
+        taking on a small number of contract and consulting engagements.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section class="contact" id="contact">
+      <div class="section-head">
+        <h2>Start a project</h2>
+        <p>Tell me what you're building. I reply within two business days.</p>
+      </div>
+
+      <form class="contact-form" action="#" method="POST">
+        <div class="form-row">
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" autocomplete="name" required>
+        </div>
+
+        <div class="form-row">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" autocomplete="email" required>
+        </div>
+
+        <div class="form-row">
+          <label for="budget">Project budget</label>
+          <select id="budget" name="budget">
+            <option value="">Prefer not to say</option>
+            <option value="small">Under $5k</option>
+            <option value="medium">$5k – $20k</option>
+            <option value="large">$20k+</option>
+          </select>
+        </div>
+
+        <div class="form-row">
+          <label for="message">Message</label>
+          <textarea id="message" name="message" rows="5" required></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary">Send message</button>
+      </form>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <span>© 2026 Alex Reyes</span>
+    <span class="footer-links">
+      <a href="#">GitHub</a>
+      <a href="#">LinkedIn</a>
+      <a href="#top">Back to top ↑</a>
+    </span>
+  </footer>
+
+</body>
+</html>

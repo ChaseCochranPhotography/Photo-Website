@@ -1,0 +1,16 @@
+media: ""
+content:
+  - label: "Website Settings"
+    type: "document"
+    path: "index.html"
+    fields:
+      - label: "Studio Logo Name"
+        name: "logo"
+        type: "string"
+        type: "text"
+      - label: "Gallery Headline"
+        name: "headline"
+        type: "string"
+      - label: "About Me Text"
+        name: "about"
+        type: "rich-text"

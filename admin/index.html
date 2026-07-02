@@ -4,10 +4,47 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Content Manager</title>
-    <link href="/admin/config.yml" type="text/yaml" rel="cms-config-url" />
     <script defer src="https://unpkg.com/decap-cms@3.0.0/dist/decap-cms.js"></script>
   </head>
   <body data-gramm="false">
     <div id="nc-root"></div>
-  </body>
+
+    <script>
+      // This waits for the page to load, then injects the configuration automatically
+      window.addEventListener('DOMContentLoaded', () => {
+        window.CMS_MANUAL_INIT = true;
+        
+        const config = {
+          backend: {
+            name: 'github',
+            repo: 'ChaseCochranPhotography/Photo-Website', // <-- Change this!
+            branch: 'main'
+          },
+          media_folder: 'images',
+          public_folder: 'images',
+          collections: [
+            {
+              name: 'homepage',
+              label: 'Homepage Content',
+              files: [
+                {
+                  file: 'data/homepage.json',
+                  label: 'Home Page',
+                  name: 'home',
+                  fields: [
+                    { label: 'Main Headline', name: 'headline', widget: 'string' },
+                    { label: 'About Me Paragraph', name: 'about_text', widget: 'text' },
+                    { label: 'Profile Picture', name: 'profile_image', widget: 'image' }
+                  ]
+                }
+              ]
+            }
+          ]
+        };
+
+        // Initialize Decap CMS with our built-in configuration
+        initCMS({ config });
+      });
+    </script>
+  </head>
 </html>

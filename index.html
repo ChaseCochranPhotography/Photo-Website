@@ -343,18 +343,31 @@
 
     <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
     <script>
-        function switchView(viewName) {
-            document.querySelectorAll('.view-section').forEach(section => {
-                section.classList.remove('active');
-            });
-            document.querySelectorAll('.nav-links a').forEach(link => {
-                link.classList.remove('active');
-            });
-            
-            document.getElementById('view-' + viewName).classList.add('active');
-            document.getElementById('nav-' + viewName).classList.add('active');
-            window.scrollTo({top: 0, behavior: 'smooth'});
+       function switchView(viewName) {
+    document.querySelectorAll('.view-section').forEach(section => {
+        section.classList.remove('active');
+    });
+    document.querySelectorAll('.nav-links a').forEach(link => {
+        link.classList.remove('active');
+    });
+    
+    document.getElementById('view-' + viewName).classList.add('active');
+    document.getElementById('nav-' + viewName).classList.add('active');
+    window.scrollTo({top: 0, behavior: 'smooth'});
+}
+
+// Automatically fetch settings from the admin control panel data file
+fetch('./site.json')
+    .then(response => response.json())
+    .then(data => {
+        if(data.logo) document.querySelector('.logo').innerText = data.logo;
+        if(data.headline) document.querySelector('.page-header h1').innerText = data.headline;
+        if(data.bio) document.querySelector('.about-text p').innerText = data.bio;
+        if(data.accent_color) {
+            document.documentElement.style.setProperty('--accent-blue', data.accent_color);
         }
+    })
+    .catch(err => console.log("CMS data loading status: waiting for inputs", err));
     </script>
 </body>
 </html>
